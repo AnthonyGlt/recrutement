@@ -1,0 +1,15 @@
+# Java
+target/
+*.class
+
+# Node / TypeScript
+node_modules/
+frontend/public/dist/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store

@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: fire-forest-simulation
+
+fire:
+  # Optional path to an external configuration file. When empty, the loader looks for
+  # "simulation.yml" in the working directory, then falls back to the one on the classpath.
+  config-file: ""
+  api:
+    # Guard rails for the REST API, to keep the simulation payloads reasonable.
+    max-dimension: 200
+    max-returned-cells: 5000000

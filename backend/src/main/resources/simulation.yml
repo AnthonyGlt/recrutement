@@ -1,0 +1,30 @@
+# ---------------------------------------------------------------------------
+# Forest fire simulation - parameters of the program.
+#
+# This file is the single source of truth for the default parameters, read by the
+# REST API at startup. A "simulation.yml" file placed in the working directory
+# takes precedence over this one, so the parameters can be tuned without
+# rebuilding the application.
+# ---------------------------------------------------------------------------
+
+forest:
+  # Dimensions of the grid (h x l).
+  height: 24
+  width: 48
+
+fire:
+  # Probability p for the fire to spread to each of the 4 adjacent cells.
+  propagationProbability: 0.55
+
+  # Cells already on fire in the initial state (zero based coordinates).
+  initialBurningCells:
+    - { row: 12, column: 8 }
+    - { row: 4, column: 36 }
+    - { row: 20, column: 30 }
+
+simulation:
+  # Safety net: the run stops if it ever reaches that number of steps.
+  maxSteps: 1000
+
+  # Seed of the random generator. Uncomment to replay the exact same run.
+  # randomSeed: 42

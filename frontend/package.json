@@ -1,0 +1,15 @@
+{
+  "name": "fire-forest-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Web front end of the forest fire simulation",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "start": "npm run build && node server.js",
+    "serve": "node server.js"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}

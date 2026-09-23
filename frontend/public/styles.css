@@ -1,0 +1,262 @@
+:root {
+  --background: #14171a;
+  --panel: #1d2226;
+  --panel-border: #2c3338;
+  --text: #e6e8ea;
+  --text-muted: #96a0a8;
+  --tree: #2f7d4f;
+  --fire: #ff6a1f;
+  --ash: #57534e;
+  --accent: #ff8f3f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 24px;
+  background: var(--background);
+  color: var(--text);
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.page-header h1 {
+  margin: 0 0 4px;
+  font-size: 22px;
+  letter-spacing: 0.2px;
+}
+
+.page-header p {
+  margin: 0 0 20px;
+  max-width: 70ch;
+  color: var(--text-muted);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 10px;
+  padding: 18px;
+}
+
+.controls section + section {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--panel-border);
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-muted);
+}
+
+.field + .field {
+  margin-top: 14px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+input[type="number"],
+input[type="text"],
+select {
+  width: 100%;
+  padding: 7px 9px;
+  border-radius: 6px;
+  border: 1px solid var(--panel-border);
+  background: #11151a;
+  color: var(--text);
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.slider-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.slider-row output {
+  min-width: 42px;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.hint {
+  margin: 4px 0 0;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.button-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+button.primary {
+  background: var(--fire);
+  color: #17110c;
+}
+
+button.primary:hover:not(:disabled) {
+  background: var(--accent);
+}
+
+button.secondary {
+  background: #272e34;
+  border-color: var(--panel-border);
+  color: var(--text);
+}
+
+button.secondary:hover:not(:disabled) {
+  background: #313a42;
+}
+
+.canvas-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: clamp(320px, 58vh, 660px);
+  background: #0e1114;
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#forest {
+  cursor: crosshair;
+  image-rendering: pixelated;
+}
+
+.playback {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.playback #timeline {
+  flex: 1;
+}
+
+.step-label {
+  min-width: 110px;
+  text-align: right;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.history {
+  display: block;
+  width: 100%;
+  height: 56px;
+  margin-top: 10px;
+  background: #0e1114;
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-top: 14px;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stat-label {
+  color: var(--text-muted);
+}
+
+.stat strong {
+  font-variant-numeric: tabular-nums;
+}
+
+.dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.dot.tree { background: var(--tree); }
+.dot.burning { background: var(--fire); }
+.dot.ash { background: var(--ash); }
+
+.message {
+  margin-bottom: 12px;
+  min-height: 0;
+}
+
+.message:empty {
+  display: none;
+}
+
+.message.error {
+  padding: 9px 12px;
+  border-radius: 6px;
+  background: rgba(220, 70, 50, 0.16);
+  border: 1px solid rgba(220, 70, 50, 0.4);
+  color: #ffb4a6;
+}
+
+.message.info {
+  color: var(--text-muted);
+}
+
+.summary {
+  margin: 12px 0 0;
+  color: var(--accent);
+  font-weight: 600;
+  min-height: 21px;
+}
